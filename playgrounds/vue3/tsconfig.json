@@ -1,0 +1,6 @@
+{
+  "extends": "./../../tsconfig.json",
+  "vueCompilerOptions": {
+    "target": 3.3
+  }
+}
