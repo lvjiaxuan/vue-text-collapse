@@ -5,7 +5,7 @@ import { URL, fileURLToPath } from 'node:url'
 const root = fileURLToPath(new URL('./../', import.meta.url))
 
 const pkgJson = {
-  name: 'vue-seamless-roll',
+  name: 'vue-text-collapse',
   exports: {
     '.': {
       types: './index.d.ts',

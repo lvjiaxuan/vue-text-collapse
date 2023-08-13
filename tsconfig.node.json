@@ -3,7 +3,8 @@
   "include": ["**/*.config.ts"],
   "compilerOptions": {
     "composite": true,
+    "preserveSymlinks": true,
     "module": "ESNext",
-    "types": ["node"]
+    "moduleResolution": "bundler"
   }
 }

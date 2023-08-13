@@ -1,18 +1,20 @@
 <script lang="ts" setup>
-import libName from 'lib-name'
+// import textCollapse from 'vue-text-collapse'
 import { version } from 'vue'
-// import Seamless from './../../../src'
+import TextCollapse from './../../../src'
 // import './../../../dist/index.css'
 </script>
 
 <template>
+  <text-collapse text="xxxxxxxxxxxxxxx12345678999" />
+
   <p text-center>
     Vue version: {{ version }}
   </p>
 
   <p text-center>
     <a
-      href="https://lvjiaxuan.github.io/lib-name/vue2"
+      href="https://lvjiaxuan.github.io/vue-text-collapse/vue2"
       target="_blank"
       rel="noopener noreferrer"
       decoration-none

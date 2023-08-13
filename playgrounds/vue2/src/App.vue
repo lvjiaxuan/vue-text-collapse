@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import libName from 'lib-name'
+import textCollapse from 'vue-text-collapse'
 import { version } from 'vue'
 // import Seamless from './../../../src'
 // import './../../../dist/index.css'
@@ -13,7 +13,7 @@ import { version } from 'vue'
 
     <p text-center>
       <a
-        href="https://lvjiaxuan.github.io/lib-name"
+        href="https://lvjiaxuan.github.io/vue-text-collapse"
         target="_blank"
         rel="noopener noreferrer"
         decoration-none
