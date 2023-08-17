@@ -1,5 +1,5 @@
 // @unocss-include
-import { defineComponent, h } from 'vue-demi'
+import { computed, defineComponent, h, ref, watchEffect } from 'vue-demi'
 
 export default defineComponent({
   name: 'vue-text-collapse',
@@ -48,6 +48,14 @@ export default defineComponent({
       return props.uniqueKey
     })()
 
+    const holderRef = ref<HTMLDivElement>()
+    const lineHeight = computed(() => {
+      if (!holderRef.value) {
+        return 0
+      }
+      return holderRef.value.clientHeight
+    })
+
     return () => h('div', { class: 'inline-flex' }, [
       h('input', {
         class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-["collapse"]',
@@ -55,12 +63,22 @@ export default defineComponent({
         type: 'checkbox',
       }, ''),
       h('div', {
-        // after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-21px)])
-        class: 'line-clamp-0 break-all break-words relative before:(content-[""] float-right hfull mb--21px) after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-21px)])',
-        style: { width: props.width, WebkitLineClamp: +props.collapseLines, lineClamp: +props.collapseLines },
+        class: 'line-clamp-0 break-all break-words relative'
+          + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])'
+          + ' after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-var(--line-height)*1px)])',
+        style: {
+          width: props.width,
+          WebkitLineClamp: +props.collapseLines,
+          lineClamp: +props.collapseLines,
+          '--line-height': lineHeight.value,
+        },
       }, [
         h('label', { class: 'float-right clear-both c-blue cursor-pointer after:content-["expand"]', for: uniqueKey.toString() }, ''),
         h('span', props.text),
+        h('span', {
+          ref: holderRef,
+          class: 'absolute top--1000 left--1000 invisible',
+        }, '_'),
       ]),
     ])
   },
