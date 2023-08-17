@@ -6,7 +6,19 @@ import TextCollapse from './../../../src'
 </script>
 
 <template>
-  <text-collapse text="xxxxxxxxxxxxxxx12345678999" />
+  <text-collapse text="oneline-oneline" />
+
+  <hr>
+
+  <text-collapse text="twolines-twolines-twolines-twolines" />
+
+  <hr>
+
+  <text-collapse text="threelines-threelines-threelines-threelines-threelines-threelines" />
+
+  <hr>
+
+  <text-collapse text="fourlines-fourlines-fourlines-fourlines-fourlines-fourlines-fourlines-fourlines" />
 
   <p text-center>
     Vue version: {{ version }}
