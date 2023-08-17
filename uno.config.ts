@@ -1,12 +1,13 @@
-import { defineConfig } from 'unocss'
+import { defineConfig, presetUno } from 'unocss'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 
-
 export default defineConfig({
-  transformers: [ transformerVariantGroup() ],
-  content: {
-    filesystem: [
-      'src/index.ts',
-    ],
+  cli: {
+    entry: {
+      patterns: 'src/index.ts',
+      outFile: 'dist/index.css',
+    },
   },
+  transformers: [ transformerVariantGroup() ],
+  presets: [ presetUno({ }) ],
 })
