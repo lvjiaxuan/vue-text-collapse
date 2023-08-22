@@ -3,8 +3,9 @@
   "include": ["**/*.config.ts"],
   "compilerOptions": {
     "composite": true,
-    "preserveSymlinks": true,
     "module": "ESNext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    
   }
 }

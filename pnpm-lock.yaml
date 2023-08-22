@@ -10,7 +10,7 @@ dependencies:
     version: 1.7.1(vue@3.3.4)
   vue-demi:
     specifier: ^0.14.5
-    version: 0.14.5(@vue/composition-api@1.7.1)(vue@3.3.4)
+    version: 0.14.5(vue@3.3.4)
 
 devDependencies:
   '@lvjiaxuan/eslint-plugin':
@@ -48,7 +48,7 @@ devDependencies:
     version: 1.2.1
   unocss:
     specifier: ^0.55.2
-    version: 0.55.2(postcss@8.4.27)(rollup@3.27.0)(vite@4.4.7)
+    version: 0.55.2(postcss@8.4.27)(rollup@3.27.0)(vite@4.4.9)
   unocss-transformer-attribute-values-group:
     specifier: ^0.2.2
     version: 0.2.2
@@ -1158,7 +1158,7 @@ packages:
       eslint-visitor-keys: 3.4.2
     dev: true
 
-  /@unocss/astro@0.55.2(rollup@3.27.0)(vite@4.4.7):
+  /@unocss/astro@0.55.2(rollup@3.27.0)(vite@4.4.9):
     resolution: {integrity: sha512-cSzBKPEveZZQDZp5bq0UlL8CVvzB/1LsgZmZufxi9oMMjMJYqzfTkKg5z65GcP82Xp5c0N3KKkl/R6I+/7Iwvw==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
@@ -1168,8 +1168,8 @@ packages:
     dependencies:
       '@unocss/core': 0.55.2
       '@unocss/reset': 0.55.2
-      '@unocss/vite': 0.55.2(rollup@3.27.0)(vite@4.4.7)
-      vite: 4.4.7(@types/node@20.5.1)
+      '@unocss/vite': 0.55.2(rollup@3.27.0)(vite@4.4.9)
+      vite: 4.4.9(@types/node@20.5.1)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -1332,7 +1332,7 @@ packages:
       '@unocss/core': 0.55.2
     dev: true
 
-  /@unocss/vite@0.55.2(rollup@3.27.0)(vite@4.4.7):
+  /@unocss/vite@0.55.2(rollup@3.27.0)(vite@4.4.9):
     resolution: {integrity: sha512-JEyEaJt8D+Ed3Z8GDQ0hMWqKsB47/DoS+aPzDoXSIVozgi8seHtfSChBOBUSgcCrozfBVp42YHbYYyloDkb2Yw==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
@@ -1347,7 +1347,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.1
       magic-string: 0.30.2
-      vite: 4.4.7(@types/node@20.5.1)
+      vite: 4.4.9(@types/node@20.5.1)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -3297,6 +3297,14 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /rollup@3.28.0:
+    resolution: {integrity: sha512-d7zhvo1OUY2SXSM6pfNjgD5+d0Nz87CUp4mt8l/GgVP3oBsPwzNvSzyu1me6BSG9JIgWNTVcafIXBIyM8yQ3yw==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -3676,7 +3684,7 @@ packages:
       magic-string: 0.30.2
     dev: true
 
-  /unocss@0.55.2(postcss@8.4.27)(rollup@3.27.0)(vite@4.4.7):
+  /unocss@0.55.2(postcss@8.4.27)(rollup@3.27.0)(vite@4.4.9):
     resolution: {integrity: sha512-+C8tFUFIEv40DpEhjA/Yv+RB5HZumkWiON2OlPyrbzapQ8x60F9TUwUS3pw7MlpxI6GfTCYwXKEE6DTGCm1SLA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -3688,7 +3696,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      '@unocss/astro': 0.55.2(rollup@3.27.0)(vite@4.4.7)
+      '@unocss/astro': 0.55.2(rollup@3.27.0)(vite@4.4.9)
       '@unocss/cli': 0.55.2(rollup@3.27.0)
       '@unocss/core': 0.55.2
       '@unocss/extractor-arbitrary-variants': 0.55.2
@@ -3707,8 +3715,8 @@ packages:
       '@unocss/transformer-compile-class': 0.55.2
       '@unocss/transformer-directives': 0.55.2
       '@unocss/transformer-variant-group': 0.55.2
-      '@unocss/vite': 0.55.2(rollup@3.27.0)(vite@4.4.7)
-      vite: 4.4.7(@types/node@20.5.1)
+      '@unocss/vite': 0.55.2(rollup@3.27.0)(vite@4.4.9)
+      vite: 4.4.9(@types/node@20.5.1)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -3758,8 +3766,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.4.7(@types/node@20.5.1):
-    resolution: {integrity: sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw==}
+  /vite@4.4.9(@types/node@20.5.1):
+    resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -3789,12 +3797,12 @@ packages:
       '@types/node': 20.5.1
       esbuild: 0.18.17
       postcss: 8.4.27
-      rollup: 3.27.0
+      rollup: 3.28.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vue-demi@0.14.5(@vue/composition-api@1.7.1)(vue@3.3.4):
+  /vue-demi@0.14.5(vue@3.3.4):
     resolution: {integrity: sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA==}
     engines: {node: '>=12'}
     hasBin: true
@@ -3806,7 +3814,6 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
-      '@vue/composition-api': 1.7.1(vue@3.3.4)
       vue: 3.3.4
     dev: false
 
