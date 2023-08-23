@@ -1,5 +1,8 @@
 {
   "extends": "./../../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "Node"
+  },
   "vueCompilerOptions": {
     "target": 3.3
   }

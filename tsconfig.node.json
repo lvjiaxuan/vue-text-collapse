@@ -6,6 +6,5 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
-    // "preserveSymlinks": false
   }
 }

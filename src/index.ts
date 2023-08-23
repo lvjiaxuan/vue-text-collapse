@@ -1,5 +1,5 @@
 // @unocss-include
-import { computed, defineComponent, h, ref, watchEffect } from 'vue-demi'
+import { computed, defineComponent, h, ref } from 'vue-demi'
 
 export default defineComponent({
   name: 'vue-text-collapse',
