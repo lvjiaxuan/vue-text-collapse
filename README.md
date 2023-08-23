@@ -33,16 +33,16 @@ pnpm i
 2. Edit `playgrounds/vue3/src/App.vue`
 ```xml
 <script setup lang="ts">
+// For build
 // import textCollapse from 'vue-text-collapse'
 import textCollapse from './../../../src'
 import './../../../dist/index.css'
-
 // ...
 ```
 
 3. Run the dev script
 ```sh
-pnpm dev3
+pnpm dev
 ```
 
 ### Preview vue 2/3
