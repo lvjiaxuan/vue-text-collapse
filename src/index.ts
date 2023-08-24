@@ -48,12 +48,12 @@ export default defineComponent({
       return props.uniqueKey
     })()
 
-    const holderRef = ref<HTMLDivElement>()
+    const oneLineRef = ref<HTMLDivElement>()
     const lineHeight = computed(() => {
-      if (!holderRef.value) {
+      if (!oneLineRef.value) {
         return 0
       }
-      return holderRef.value.clientHeight
+      return oneLineRef.value.clientHeight
     })
 
     return () => h('div', { class: 'inline-flex' }, [
@@ -64,13 +64,13 @@ export default defineComponent({
       }, ''),
       h('div', {
         class: 'line-clamp-0 break-all break-words relative'
-          + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])',
+        + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])',
         // + ' after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-var(--line-height)*1px)])',
         style: {
           width: props.width,
           WebkitLineClamp: +props.collapseLines,
           lineClamp: +props.collapseLines,
-          '--line-height': lineHeight.value,
+          '--line-height': lineHeight.value - 0.2,
         },
       }, [
         h('label', {
@@ -79,9 +79,9 @@ export default defineComponent({
           'data-expand-text': props.expandText,
           'data-collapse-text': props.collapseText,
         }, ''),
-        h('span', props.text),
+        props.text,
         h('span', {
-          ref: holderRef,
+          ref: oneLineRef,
           class: 'absolute top--1000 left--1000 invisible',
         }, '_'),
       ]),

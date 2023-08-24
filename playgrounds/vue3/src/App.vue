@@ -2,7 +2,7 @@
 // import textCollapse from 'vue-text-collapse'
 import { version } from 'vue'
 import TextCollapse from './../../../src'
-import './../../../dist/index.css'
+// import './../../../dist/index.css'
 </script>
 
 <template>
