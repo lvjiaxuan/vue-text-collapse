@@ -36,7 +36,6 @@ pnpm i
 // For build
 // import textCollapse from 'vue-text-collapse'
 import textCollapse from './../../../src'
-import './../../../dist/index.css'
 // ...
 ```
 

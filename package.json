@@ -32,9 +32,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "run-p dev:*",
-    "dev:3": "nr -C=playgrounds/vue3 dev",
-    "dev:u": "nr u --watch",
+    "dev": "nr -C=playgrounds/vue3 dev",
     "preview:3": "nr build:preview && ni -C=playgrounds/vue3 --force && nr -C=playgrounds/vue3 build && nr -C=playgrounds/vue3 preview",
     "preview:2": "nr build:preview && ni -C=playgrounds/vue2 --force && nr -C=playgrounds/vue2 build && nr -C=playgrounds/vue2 preview",
     "u": "unocss",
