@@ -1,13 +1,19 @@
 <script lang="ts" setup>
-import textCollapse from 'vue-text-collapse'
-import { version } from 'vue'
-// import Seamless from './../../../src'
-// import './../../../dist/index.css'
+import { ref, version } from 'vue'
+import TextCollapse from 'vue-text-collapse'
+
+const onelineRef = ref<InstanceType<typeof TextCollapse>>()
+const fourlineRef = ref<InstanceType<typeof TextCollapse>>()
 </script>
 
 <template>
   <main>
-    <text-collapse text="oneline-oneline" />
+    <p>isOverClampedText: {{ onelineRef?.isOverClampedText }}</p>
+
+    <text-collapse
+      ref="onelineRef"
+      text="oneline-oneline"
+    />
 
     <hr>
 
@@ -19,7 +25,12 @@ import { version } from 'vue'
 
     <hr>
 
-    <text-collapse text="fourlines-fourlines-fourlines-fourlines-fourlines-fourlines-fourlines-fourlines" />
+    <p>isOverClampedText: {{ fourlineRef?.isOverClampedText }}</p>
+
+    <text-collapse
+      ref="fourlineRef"
+      text="fourlines-fourlines-fourlines-fourlines-fourlines-fourlines-fourlines-fourlines"
+    />
 
     <p text-center>
       Vue version: {{ version }}

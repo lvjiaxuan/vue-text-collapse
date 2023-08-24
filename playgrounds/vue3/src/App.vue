@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-// import textCollapse from 'vue-text-collapse'
+// import TextCollapse from 'vue-text-collapse'
 import { ref, version } from 'vue'
 import TextCollapse from './../../../src'
 

@@ -40,8 +40,9 @@ export default defineComponent({
   },
 
   computed: {
-    isOverClampedText() {
+    isOverClampedText(): boolean {
       // Fake, a holder. For the component exposed type intellisense.
+      return true
     },
   },
 
