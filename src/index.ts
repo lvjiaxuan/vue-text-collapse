@@ -58,14 +58,14 @@ export default defineComponent({
 
     return () => h('div', { class: 'inline-flex' }, [
       h('input', {
-        class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-["collapse"]',
+        class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-[attr(data-collapse-text)]',
         id: uniqueKey.toString(),
         type: 'checkbox',
       }, ''),
       h('div', {
         class: 'line-clamp-0 break-all break-words relative'
-          + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])'
-          + ' after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-var(--line-height)*1px)])',
+          + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])',
+        // + ' after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-var(--line-height)*1px)])',
         style: {
           width: props.width,
           WebkitLineClamp: +props.collapseLines,
@@ -73,7 +73,12 @@ export default defineComponent({
           '--line-height': lineHeight.value,
         },
       }, [
-        h('label', { class: 'float-right clear-both c-blue cursor-pointer after:content-["expand"]', for: uniqueKey.toString() }, ''),
+        h('label', {
+          class: 'float-right clear-both c-blue cursor-pointer after:content-[attr(data-expand-text)]',
+          for: uniqueKey.toString(),
+          'data-expand-text': props.expandText,
+          'data-collapse-text': props.collapseText,
+        }, ''),
         h('span', props.text),
         h('span', {
           ref: holderRef,
