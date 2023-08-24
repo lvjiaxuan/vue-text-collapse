@@ -39,7 +39,13 @@ export default defineComponent({
     },
   },
 
-  setup(props) {
+  computed: {
+    isOverClampedText() {
+      // Fake, a holder. For the component exposed type intellisense.
+    },
+  },
+
+  setup(props, { expose }) {
 
     const uniqueKey = (() => {
       if (!props.uniqueKey) {
@@ -56,6 +62,17 @@ export default defineComponent({
       return oneLineRef.value.clientHeight
     })
 
+    const textRef = ref<HTMLSpanElement>()
+    const containerRef = ref<HTMLLabelElement>()
+    const isOverClampedText = computed(() => {
+      if (!textRef.value || !containerRef.value) {
+        return false
+      }
+      return textRef.value.offsetHeight > containerRef.value.offsetHeight
+    })
+
+    expose({ isOverClampedText })
+
     return () => h('div', { class: 'inline-flex' }, [
       h('input', {
         class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-[attr(data-collapse-text)]',
@@ -63,9 +80,9 @@ export default defineComponent({
         type: 'checkbox',
       }, ''),
       h('div', {
+        ref: containerRef,
         class: 'line-clamp-0 break-all break-words relative'
         + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])',
-        // + ' after:(content-[""] wfull hfull absolute bg-red visible top-[calc(100%-var(--line-height)*1px)])',
         style: {
           width: props.width,
           WebkitLineClamp: +props.collapseLines,
@@ -73,13 +90,13 @@ export default defineComponent({
           '--line-height': lineHeight.value - 0.2,
         },
       }, [
-        h('label', {
+        isOverClampedText.value ? h('label', {
           class: 'float-right clear-both c-blue cursor-pointer after:content-[attr(data-expand-text)]',
           for: uniqueKey.toString(),
           'data-expand-text': props.expandText,
           'data-collapse-text': props.collapseText,
-        }, ''),
-        props.text,
+        }, '') : null,
+        h('span', { ref: textRef }, props.text),
         h('span', {
           ref: oneLineRef,
           class: 'absolute top--1000 left--1000 invisible',
