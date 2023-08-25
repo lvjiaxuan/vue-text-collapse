@@ -73,6 +73,7 @@
     "unbuild": "^1.2.1",
     "unocss": "^0.55.2",
     "unocss-transformer-attribute-values-group": "^0.2.2",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue2": "npm:vue@2.7.14"
   }
 }

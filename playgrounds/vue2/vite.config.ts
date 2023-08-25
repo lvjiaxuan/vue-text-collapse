@@ -8,4 +8,5 @@ export default defineConfig({
   base: '/vue-text-collapse/vue2/',
   plugins: [ vue(), UnoCSS({ configFile: fileURLToPath(new URL('./../../uno.config.ts', import.meta.url)) }) ],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
+  optimizeDeps: { exclude: [ 'vue-demi', 'vue-text-collapse' ], force: true },
 })

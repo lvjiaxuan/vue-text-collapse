@@ -1,5 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // @unocss-include
-import { computed, defineComponent, h, ref } from 'vue-demi'
+import { computed, defineComponent, h, isVue2, ref } from 'vue-demi'
+import { type VNodeData as VNodeData2 } from 'vue2'
+
+const compatVue2VNodeProps = (props: Record<string, any>) => {
+  const vnodeData = {} as VNodeData2
+
+  const attrsKeys = [ 'id', 'for', 'type' ]
+
+  for (const key in props) {
+    const typeKey = key as keyof VNodeData2
+    if (attrsKeys.includes(typeKey)) {
+      vnodeData.attrs = { ...vnodeData.attrs, [typeKey]: props[typeKey] }
+    } else {
+      vnodeData[typeKey] = props[typeKey]
+    }
+  }
+
+  return vnodeData
+}
+
+const parse3to2 = (props: Record<string, any>) => isVue2 ? compatVue2VNodeProps(props) : props
 
 export default defineComponent({
   name: 'vue-text-collapse',
@@ -75,11 +96,12 @@ export default defineComponent({
     expose({ isOverClampedText })
 
     return () => h('div', { class: 'inline-flex' }, [
-      h('input', {
+      // @ts-ignore
+      h('input', parse3to2({
         class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-[attr(data-collapse-text)]',
         id: uniqueKey.toString(),
         type: 'checkbox',
-      }, ''),
+      }), ''),
       h('div', {
         ref: containerRef,
         class: 'line-clamp-0 break-all break-words relative'
@@ -91,12 +113,13 @@ export default defineComponent({
           '--line-height': lineHeight.value - 0.2,
         },
       }, [
-        isOverClampedText.value ? h('label', {
+        // @ts-ignore
+        isOverClampedText.value ? h('label', parse3to2({
           class: 'float-right clear-both c-blue cursor-pointer after:content-[attr(data-expand-text)]',
           for: uniqueKey.toString(),
           'data-expand-text': props.expandText,
           'data-collapse-text': props.collapseText,
-        }, '') : null,
+        }), '') : null,
         h('span', { ref: textRef }, props.text),
         h('span', {
           ref: oneLineRef,
@@ -119,3 +142,4 @@ function generateRandomString(length = 10) {
 
   return result
 }
+/* eslint-enable @typescript-eslint/no-unsafe-assignment */
