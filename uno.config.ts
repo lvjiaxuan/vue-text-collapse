@@ -1,5 +1,4 @@
-import { type UserConfig, defineConfig } from 'unocss'
-import transformerVariantGroup from '@unocss/transformer-variant-group'
+import { type SourceCodeTransformer, type UserConfig, defineConfig, transformerVariantGroup } from 'unocss'
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 export default defineConfig({

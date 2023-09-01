@@ -64,7 +64,6 @@
     "@tsconfig/node18": "^18.2.0",
     "@types/node": "^20.5.1",
     "@unocss/cli": "^0.55.2",
-    "@unocss/transformer-variant-group": "^0.55.2",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.47.0",
     "execa": "^8.0.1",
