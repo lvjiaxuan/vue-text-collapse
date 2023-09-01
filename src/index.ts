@@ -105,7 +105,7 @@ export default defineComponent({
       h('div', {
         ref: containerRef,
         class: 'line-clamp-0 break-all break-words relative'
-        + ' before:(content-[""] float-right hfull mb-[calc(var(--line-height)*-1px)])',
+        + ' before:content-[""] before:float-right before:hfull before:mb-[calc(var(--line-height)*-1px)]',
         style: {
           width: props.width,
           WebkitLineClamp: +props.collapseLines,
