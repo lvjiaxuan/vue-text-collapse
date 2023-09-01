@@ -59,6 +59,7 @@ props: {
 1. Install
 ```sh
 pnpm i
+pnpm p:i
 ```
 
 2. Confirm `playgrounds/vue3/src/App.vue`
