@@ -11,7 +11,7 @@
 ## Install
 
 ```sh
-npm i vue-text-collapse
+pnpm i vue-text-collapse
 ```
 
 ## Props
@@ -19,7 +19,38 @@ npm i vue-text-collapse
 <!-- eslint-skip -->
 ```ts
 props: {
-  // ......
+  text: {
+    // The shown content.
+    type: String,
+    required: true,
+  },
+
+  collapseLines: {
+    // The lines shown when it is collapsed.
+    type: [ String, Number ],
+    default: 2,
+  },
+
+  width: {
+    type: String,
+    default: '200px',
+  },
+
+  uniqueKey: {
+    // Used for the `id` attribute when it is rendered by `v-for`.
+    type: [ String, Number ],
+    require: false,
+  },
+
+  expandText: {
+    type: String,
+    default: 'Expand',
+  },
+
+  collapseText: {
+    type: String,
+    default: 'Collapse',
+  },
 },
 ```
 
@@ -30,7 +61,7 @@ props: {
 pnpm i
 ```
 
-2. Edit `playgrounds/vue3/src/App.vue`
+2. Confirm `playgrounds/vue3/src/App.vue`
 ```xml
 <script setup lang="ts">
 // For build
@@ -44,7 +75,7 @@ import textCollapse from './../../../src'
 pnpm dev
 ```
 
-### Preview vue 2/3
+## Preview vue 2/3
 
 - `pnpm preview:3`
 - `pnpm preview:2`

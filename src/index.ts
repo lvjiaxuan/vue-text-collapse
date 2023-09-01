@@ -3,14 +3,14 @@
 import { computed, defineComponent, h, isVue2, ref } from 'vue-demi'
 import { type VNodeData as VNodeData2 } from 'vue2'
 
-const compatVue2VNodeProps = (props: Record<string, any>) => {
+const parse3to2 = (props: Record<string, any>) => {
   const vnodeData = {} as VNodeData2
 
   const attrsKeys = [ 'id', 'for', 'type' ]
 
   for (const key in props) {
     const typeKey = key as keyof VNodeData2
-    if (attrsKeys.includes(typeKey)) {
+    if (attrsKeys.includes(typeKey) || typeKey.startsWith('data-')) {
       vnodeData.attrs = { ...vnodeData.attrs, [typeKey]: props[typeKey] }
     } else {
       vnodeData[typeKey] = props[typeKey]
@@ -20,7 +20,7 @@ const compatVue2VNodeProps = (props: Record<string, any>) => {
   return vnodeData
 }
 
-const parse3to2 = (props: Record<string, any>) => isVue2 ? compatVue2VNodeProps(props) : props
+const compatVNodeProps = (props: Record<string, any>) => isVue2 ? parse3to2(props) : props
 
 export default defineComponent({
   name: 'vue-text-collapse',
@@ -97,7 +97,7 @@ export default defineComponent({
 
     return () => h('div', { class: 'inline-flex' }, [
       // @ts-ignore
-      h('input', parse3to2({
+      h('input', compatVNodeProps({
         class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-[attr(data-collapse-text)]',
         id: uniqueKey.toString(),
         type: 'checkbox',
@@ -114,7 +114,7 @@ export default defineComponent({
         },
       }, [
         // @ts-ignore
-        isOverClampedText.value ? h('label', parse3to2({
+        isOverClampedText.value ? h('label', compatVNodeProps({
           class: 'float-right clear-both c-blue cursor-pointer after:content-[attr(data-expand-text)]',
           for: uniqueKey.toString(),
           'data-expand-text': props.expandText,
