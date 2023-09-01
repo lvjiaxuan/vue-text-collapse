@@ -35,7 +35,7 @@
     "dev": "nr -C=playgrounds/vue3 dev",
     "preview:3": "nr build:preview && ni -C=playgrounds/vue3 --force && nr -C=playgrounds/vue3 build && nr -C=playgrounds/vue3 preview",
     "preview:2": "nr build:preview && ni -C=playgrounds/vue2 --force && nr -C=playgrounds/vue2 build && nr -C=playgrounds/vue2 preview",
-    "u": "unocss",
+    "u": "unocss --write-transformed",
     "r": "lvr --pkg --main-pkg --no-push",
     "i": "ni -C=playgrounds/vue3 --force & ni -C=playgrounds/vue2 --force",
     "build:deploy": "node ./scripts/buildDeploy.mjs",
