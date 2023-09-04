@@ -46,8 +46,8 @@ jobs:
         run: |
           pnpm i @antfu/ni -g
           nci
-          nr p:i
           nr build:preview
+          nr p:i
           nr build:deploy
 
       - name: Upload artifact
