@@ -4,41 +4,27 @@ on:
   push:
     tags:
       - v*
+  workflow_call:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+    uses: lvjiaxuan/github-action-templates/.github/workflows/lvr-release.yml@main
+    secrets: inherit
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+  # publish:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
+  #     - uses: actions/setup-node@v3
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+  #       with:
+  #         node-version: 18
+  #         registry-url: https://registry.npmjs.org
 
-      - run: pnpm i @antfu/ni -g
+  #     - uses: pnpm/action-setup@v2
+  #       with:
+  #         version: 8
 
-      - run: npx lvr release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - run: ni && pnpm publish --no-git-checks
+  #     - run: ni && pnpm publish --no-git-checks
