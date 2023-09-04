@@ -45,7 +45,8 @@ jobs:
       - name: Run scripts
         run: |
           pnpm i @antfu/ni -g
-          ni
+          nci
+          nr p:i
           nr build:preview
           nr build:deploy
 
