@@ -1,6 +1,14 @@
 # Changelog
 
-Tag ranges `v0.1.0...v0.1.1` (2). [All GitHub Releases](https://github.com/lvjiaxuan/vue-text-collapse/releases).
+Tag ranges `v0.1.0...v0.1.2` (3). [All GitHub Releases](https://github.com/lvjiaxuan/vue-text-collapse/releases).
+
+## v0.1.2 <sub>(2023-09-05)</sub>
+[Compare changes](https://github.com/lvjiaxuan/vue-text-collapse/compare/v0.1.1...v0.1.2)
+
+### &nbsp;&nbsp;&nbsp;🐛 Fixes
+
+- deploy action &nbsp;-&nbsp; by @lvjiaxuan [<samp>(3b8c3)</samp>](https://github.com/lvjiaxuan/vue-text-collapse/commit/3b8c3bf)
+- deploy action &nbsp;-&nbsp; by @lvjiaxuan [<samp>(67aac)</samp>](https://github.com/lvjiaxuan/vue-text-collapse/commit/67aacc9)
 
 ## v0.1.1 <sub>(2023-09-01)</sub>
 [Compare changes](https://github.com/lvjiaxuan/vue-text-collapse/compare/v0.1.0...v0.1.1)
