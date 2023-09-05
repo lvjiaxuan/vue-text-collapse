@@ -16,7 +16,6 @@ pnpm i vue-text-collapse
 
 ## Props
 
-<!-- eslint-skip -->
 ```ts
 props: {
   text: {
