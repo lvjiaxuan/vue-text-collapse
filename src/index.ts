@@ -98,7 +98,7 @@ export default defineComponent({
     return () => h('div', { class: 'inline-flex' }, [
       // @ts-ignore
       h('input', compatVNodeProps({
-        class: 'display-none next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-[attr(data-collapse-text)]',
+        class: 'hidden next-[div]-checked:line-clamp-999! next-[div::after]-checked:invisible next-[div>label:after]-checked:content-[attr(data-collapse-text)]',
         id: uniqueKey.toString(),
         type: 'checkbox',
       }), ''),
